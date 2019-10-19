@@ -151,7 +151,7 @@ export default {
                 targets: this.$refs.aboutMe,
                 keyframes: [
                     { bottom: -80, duration: 250 },
-                    { left: -40, letterSpacing: 25, duration: 600 },
+                    { left: -20, letterSpacing: 25, duration: 600 },
                     { left: 0, bottom: 0, letterSpacing: 2 }
                 ],
                 opacity: 1,
@@ -165,7 +165,7 @@ export default {
                 targets: ref,
                 opacity: 1,
                 direction: "reverse",
-                duration: 1500,
+                duration: 1300,
                 easing: "easeInOutSine"
             };
         },
@@ -230,6 +230,7 @@ export default {
     @media only screen and (max-width: 700px) {
         flex: 1;
         margin: 0 30px;
+        height: 100%;
     }
 
     .title-container {
@@ -304,6 +305,30 @@ export default {
                 }
             }
         }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .title {
+        font-size: 1.2rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .list {
+        padding-left: 0 !important;
+        font-size: 0.9rem;
+    }
+
+    .divider {
+        margin: 25px 0 !important;
+    }
+
+    .text-container {
+        display: none;
+    }
+
+    .skill-bar-container {
+        margin-left: 15px;
     }
 }
 </style>
