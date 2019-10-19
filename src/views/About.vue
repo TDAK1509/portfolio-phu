@@ -1,31 +1,44 @@
 <template>
     <MainContainer>
         <main class="main">
-            <h4 class="title">ABOUT ME</h4>
-
-            <ul class="list">
-                <li class="list-item" v-for="a in aboutMe">
-                    <font-awesome-icon icon="angle-right" />
-                    <span class="text">{{a}}.</span>
-                </li>
-            </ul>
-
-            <div class="skill-row" v-for="(s, index) in skills" :key="index">
-                <div class="icon-container">
-                    <img
-                        :src="require (`@/assets/images/${s.icon}`)"
-                        :alt="s.text"
-                        class="skills-icon"
-                    />
+            <div class="about-me-container" ref="aboutMeContainer">
+                <div class="title-container">
+                    <h4 class="title" ref="aboutMe">ABOUT ME</h4>
                 </div>
 
-                <div class="text-container">
-                    <span class="text">{{s.text}}</span>
-                </div>
+                <ul class="list">
+                    <li
+                        class="list-item"
+                        v-for="(a, index) in aboutMe"
+                        :key="`aboutMeItem${index}`"
+                        :ref="`aboutMeItem${index}`"
+                    >
+                        <font-awesome-icon icon="angle-right" />
+                        <span class="text">{{a}}.</span>
+                    </li>
+                </ul>
 
-                <div class="progress-bar-container">
-                    <div class="progress-bar">
-                        <div :class="`progress-bar-inside ${s.animationName}`">{{s.progressText}}</div>
+                <div class="divider" ref="divider"></div>
+            </div>
+
+            <div class="skill-row-container">
+                <div class="skill-row" v-for="(s, index) in skills" :key="`skillRow${index}`">
+                    <div class="icon-container">
+                        <img
+                            :src="require (`@/assets/images/${s.icon}`)"
+                            :alt="s.text"
+                            class="skills-icon"
+                        />
+                    </div>
+
+                    <div class="text-container">
+                        <span class="text">{{s.text}}</span>
+                    </div>
+
+                    <div class="skill-bar-container">
+                        <div class="skill-bar">
+                            <div :class="`skill-bar-inside`" :ref="`skillBar${index}`"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,6 +50,8 @@
 </template>
 
 <script>
+import anime from "animejs/lib/anime.es.js";
+
 export default {
     name: "About",
 
@@ -52,60 +67,157 @@ export default {
                 {
                     icon: "html.png",
                     text: "HTML",
-                    animationName: "race8",
-                    progressText: "8.0"
+                    width: "80%"
                 },
 
                 {
                     icon: "css.png",
                     text: "CSS",
-                    animationName: "race8",
-                    progressText: "8.0"
+                    width: "80%"
                 },
 
                 {
                     icon: "javascript.png",
                     text: "Javascript",
-                    animationName: "race8",
-                    progressText: "8.0"
+                    width: "80%"
                 },
 
                 {
                     icon: "vue.png",
                     text: "Vue",
-                    animationName: "race7",
-                    progressText: "7.0"
+                    width: "70%"
                 },
 
                 {
                     icon: "firebase.png",
                     text: "Firebase",
-                    animationName: "race6",
-                    progressText: "6.0"
+                    width: "60%"
                 },
 
                 {
                     icon: "mongodb.png",
                     text: "MongoDB",
-                    animationName: "race6",
-                    progressText: "6.0"
+                    width: "60%"
                 },
 
                 {
                     icon: "php.png",
                     text: "PHP",
-                    animationName: "race5-5",
-                    progressText: "5.5"
+                    width: "55%"
                 }
             ]
         };
+    },
+
+    methods: {
+        animate() {
+            const tl = anime.timeline({
+                easing: "easeOutExpo"
+            });
+
+            tl.add(this.animateAboutMeContainerDown());
+
+            tl.add(this.animateAboutMe());
+
+            for (let i = 0; i < this.aboutMe.length; i++) {
+                const ref = this.$refs[`aboutMeItem${i}`];
+                tl.add(this.animateAboutMeItem(ref));
+            }
+
+            tl.add(this.animateDivider());
+
+            tl.add(this.animateAboutMeContainerUp());
+
+            tl.add(this.animateShowSkillBar(), "-=450");
+
+            for (let i = 0; i < this.skills.length; i++) {
+                const offset = i === 0 ? "-=500" : "-=1500";
+                const width = this.skills[i].width;
+                const ref = this.$refs[`skillBar${i}`][0];
+                tl.add(this.animateSkillBar(ref, width), offset);
+            }
+        },
+
+        animateAboutMeContainerDown() {
+            return {
+                targets: this.$refs.aboutMeContainer,
+                translateY: 150,
+                duration: 100
+            };
+        },
+
+        animateAboutMe() {
+            return {
+                targets: this.$refs.aboutMe,
+                keyframes: [
+                    { bottom: -80, duration: 250 },
+                    { left: -40, letterSpacing: 25, duration: 600 },
+                    { left: 0, bottom: 0, letterSpacing: 2 }
+                ],
+                opacity: 1,
+                duration: 1200,
+                easing: "easeOutQuart"
+            };
+        },
+
+        animateAboutMeItem(ref) {
+            return {
+                targets: ref,
+                opacity: 1,
+                direction: "reverse",
+                duration: 1500,
+                easing: "easeInOutSine"
+            };
+        },
+
+        animateDivider() {
+            return {
+                targets: this.$refs.divider,
+                opacity: 1,
+                rotate: "1turn"
+            };
+        },
+
+        animateAboutMeContainerUp() {
+            return {
+                targets: this.$refs.aboutMeContainer,
+                translateY: 0,
+                duration: 300
+            };
+        },
+
+        animateShowSkillBar() {
+            return {
+                targets: ".skill-row",
+                opacity: 1,
+                duration: 1000,
+                easing: "easeInOutQuart"
+            };
+        },
+
+        animateSkillBar(ref, width) {
+            return {
+                targets: ref,
+                width: width,
+                duration: 1500,
+                easing: "easeInOutQuart",
+                update: function(anim) {
+                    const value = parseFloat(width) / 100;
+                    const progress = Math.round(anim.progress);
+                    const text = ((value * progress) / 10).toFixed(2);
+                    ref.innerText = text;
+                }
+            };
+        }
+    },
+
+    mounted() {
+        this.animate();
     }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/the_skills_animations.scss";
-
 .main {
     flex: 0.6;
     margin: 0 90px;
@@ -120,20 +232,23 @@ export default {
         margin: 0 30px;
     }
 
-    .title {
-        letter-spacing: 2px;
-        margin-bottom: 20px;
-        font-size: 1.8rem;
+    .title-container {
+        .title {
+            display: inline-block;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            opacity: 0;
+        }
     }
 
     .list {
         padding-left: 25px;
-        margin-bottom: 30px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid #d3d3d3;
 
         .list-item {
             margin-bottom: 10px;
+            opacity: 0;
 
             .text {
                 margin-left: 15px;
@@ -141,41 +256,51 @@ export default {
         }
     }
 
-    .skill-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 10px;
+    .divider {
+        margin: 30px 0;
+        border-bottom: 1px solid #d3d3d3;
+        opacity: 0;
+    }
 
-        .icon-container {
-            .skills-icon {
-                width: 30px;
-                height: 30px;
-                object-fit: cover;
-            }
-        }
+    .skill-row-container {
+        .skill-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            opacity: 0;
 
-        .text-container {
-            flex-basis: 100px;
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-
-        .progress-bar-container {
-            flex: 1;
-
-            .progress-bar {
-                width: 100%;
-                height: 30px;
-                background: #d3d3d3;
-
-                .progress-bar-inside {
+            .icon-container {
+                .skills-icon {
+                    width: 30px;
                     height: 30px;
-                    background: #e25c4a;
-                    color: #fff;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-family: "Arial", sans-serif;
+                    object-fit: cover;
+                }
+            }
+
+            .text-container {
+                flex-basis: 100px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .skill-bar-container {
+                flex: 1;
+
+                .skill-bar {
+                    width: 100%;
+                    height: 30px;
+                    background: #d3d3d3;
+
+                    .skill-bar-inside {
+                        height: 30px;
+                        background: #e25c4a;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-family: "Arial", sans-serif;
+                        width: 0%;
+                    }
                 }
             }
         }
