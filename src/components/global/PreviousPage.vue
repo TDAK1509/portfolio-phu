@@ -39,5 +39,9 @@ export default {
     .arrow-button-container {
         margin-left: 20px;
     }
+
+    @media only screen and (max-width: 700px) {
+        align-items: flex-end;
+    }
 }
 </style>
