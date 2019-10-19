@@ -1,5 +1,17 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <MainContainer>
+        <main class="about">acd</main>
+
+        <PreviousPage link="contact"></PreviousPage>
+        <NextPage link="about"></NextPage>
+    </MainContainer>
 </template>
+
+<script>
+export default {
+    name: "About"
+};
+</script>
+
+<style lang="scss" scoped>
+</style>

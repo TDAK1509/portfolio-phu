@@ -1,12 +1,12 @@
 <template>
-  <button class="arrow-button" @click="goToPage">
-    <img src="../assets/images/arrow-right.png" alt="Arrow-right" :class="imgClasses" />
-  </button>
+    <button class="arrow-button" @click="goToPage">
+        <img src="../../assets/images/arrow-right.png" alt="Arrow-right" :class="imgClasses" />
+    </button>
 </template>
 
 <script>
 export default {
-    name: 'ArrowButton',
+    name: "ArrowButton",
 
     props: {
         link: String,
@@ -18,16 +18,16 @@ export default {
 
     computed: {
         imgClasses() {
-            return this.reverse === false ? 'arrow' : 'arrow reverse'
+            return this.reverse === false ? "arrow" : "arrow reverse";
         }
     },
 
     methods: {
         goToPage() {
-            this.$router.push(this.link)
+            this.$router.push(this.link);
         }
     }
-}
+};
 </script>
 
 <style lang="scss" scoped>

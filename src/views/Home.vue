@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <MainContainer>
         <main class="home">
             <h2 class="subhead h2 animation-type a1">Hi,</h2>
 
@@ -12,21 +12,14 @@
             <img src="../assets/images/avatar.jpg" alt class="avatar slide-from-right" />
         </main>
 
-        <PreviousPage link="about"></PreviousPage>
+        <PreviousPage link="contact"></PreviousPage>
         <NextPage link="about"></NextPage>
-    </div>
+    </MainContainer>
 </template>
 
 <script>
-import NextPage from "@/components/NextPage.vue";
-import PreviousPage from "@/components/PreviousPage.vue";
-
 export default {
-    name: "Home",
-    components: {
-        NextPage,
-        PreviousPage
-    }
+    name: "Home"
 };
 </script>
 
