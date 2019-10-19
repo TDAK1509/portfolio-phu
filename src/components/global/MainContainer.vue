@@ -12,6 +12,6 @@
     justify-content: center;
     align-items: center;
     letter-spacing: 2px;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 </style>
