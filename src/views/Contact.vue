@@ -326,7 +326,7 @@ export default {
     .contact-us-header {
         padding-bottom: 10px !important;
         border-bottom: none !important;
-        margin-top: 20px;
+        margin-top: 50px !important;
 
         .title {
             font-size: 1.2rem !important;
