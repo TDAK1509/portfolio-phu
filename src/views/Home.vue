@@ -1,7 +1,5 @@
 <template>
     <MainContainer>
-        <NavBar></NavBar>
-
         <main class="home">
             <h2 class="subhead h2" ref="hi">
                 <span class="letter" v-for="letter in hi">{{letter}}</span>

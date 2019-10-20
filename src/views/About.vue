@@ -1,7 +1,5 @@
 <template>
     <MainContainer>
-        <NavBar></NavBar>
-
         <main class="main">
             <div class="about-me-container" ref="aboutMeContainer">
                 <div class="title-container">

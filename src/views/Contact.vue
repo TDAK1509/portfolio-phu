@@ -1,7 +1,5 @@
 <template>
     <MainContainer>
-        <NavBar></NavBar>
-
         <main class="main">
             <header class="contact-us-header">
                 <h4 class="title" ref="aboutMe">CONTACT ME</h4>

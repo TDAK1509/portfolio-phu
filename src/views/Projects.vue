@@ -1,7 +1,5 @@
 <template>
     <MainContainer>
-        <NavBar></NavBar>
-
         <main class="main">
             <div class="iframe-container">
                 <iframe
