@@ -1,6 +1,7 @@
 <template>
     <MainContainer>
         <NavBar></NavBar>
+
         <main class="home">
             <h2 class="subhead h2" ref="hi">
                 <span class="letter" v-for="letter in hi">{{letter}}</span>
@@ -27,7 +28,21 @@
                 </template>
             </p>
 
-            <img src="../assets/images/avatar.jpg" alt class="avatar slide-from-right" ref="avatar" />
+            <div class="row">
+                <router-link to="about" exact>
+                    <img
+                        src="../assets/images/avatar.png"
+                        alt
+                        class="avatar slide-from-right"
+                        ref="avatar"
+                    />
+                </router-link>
+
+                <div class="click-me" ref="clickMe">
+                    <font-awesome-icon icon="hand-point-left"></font-awesome-icon>
+                    <span class="text">Click</span>
+                </div>
+            </div>
         </main>
     </MainContainer>
 </template>
@@ -61,7 +76,8 @@ export default {
             tl.add(this.animateLetter(this.$refs.name), "+=300");
             tl.add(this.animateLetter(this.$refs.title), "+=150");
             tl.add(this.animateLetter(this.$refs.caption), "-=250");
-            tl.add(this.animateAvatar(), "+=00");
+            tl.add(this.animateAvatar());
+            tl.add(this.animateShowClickMe());
         },
 
         animateLetter(ref) {
@@ -83,6 +99,21 @@ export default {
                 translateX: [100, 0],
                 easing: "easeOutElastic"
             };
+        },
+
+        animateShowClickMe() {
+            return {
+                targets: this.$refs.clickMe,
+                opacity: 1
+            };
+        },
+
+        animatePointingClickMe() {
+            return {
+                targets: this.$refs.clickMe,
+                loop: true,
+                translateX: 50
+            };
         }
     },
 
@@ -94,15 +125,29 @@ export default {
 
 <style lang="scss" scoped>
 .home {
-    flex-basis: 368px;
+    .row {
+        display: flex;
+        align-items: center;
 
-    .avatar {
-        margin: 20px 0;
-        border-radius: 50%;
-        width: 200px;
-        height: 200px;
-        object-fit: cover;
-        opacity: 0;
+        .avatar {
+            margin: 20px 0;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            opacity: 0;
+        }
+
+        .click-me {
+            opacity: 0;
+            margin-left: 20px;
+            font-size: 1.3rem;
+            animation: pointing 800ms ease-out infinite;
+
+            .text {
+                margin-left: 10px;
+            }
+        }
     }
 
     .headline {
@@ -138,8 +183,12 @@ export default {
         flex-basis: 280px;
 
         .avatar {
-            width: 140px;
-            height: 140px;
+            width: 180px !important;
+            height: 180px !important;
+        }
+
+        .click-me {
+            font-size: 1rem !important;
         }
 
         .headline {
@@ -171,5 +220,15 @@ export default {
 
 .space-title {
     margin-right: 0.34rem;
+}
+
+@keyframes pointing {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-10px);
+    }
 }
 </style>
