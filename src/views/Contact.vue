@@ -297,6 +297,7 @@ export default {
         border-radius: 3px;
         background: #1f1c1c;
         color: #fff;
+        border: 1px solid #1f1c1c;
         font-weight: 700;
         letter-spacing: 2px;
         cursor: pointer;
@@ -306,8 +307,13 @@ export default {
         }
 
         &:hover {
-            transform: scale(1.1);
-            transition: 0.5s;
+            transition: 0.2s;
+            background: #fff;
+            color: #1f1c1c;
+        }
+
+        &:active {
+            transform: translate(5px, -5px);
         }
 
         .loading {
@@ -320,6 +326,7 @@ export default {
     .contact-us-header {
         padding-bottom: 10px !important;
         border-bottom: none !important;
+        margin-top: 20px;
 
         .title {
             font-size: 1.2rem !important;
