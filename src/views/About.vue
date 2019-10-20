@@ -1,5 +1,7 @@
 <template>
     <MainContainer>
+        <NavBar></NavBar>
+
         <main class="main">
             <div class="about-me-container" ref="aboutMeContainer">
                 <div class="title-container">
@@ -43,9 +45,6 @@
                 </div>
             </div>
         </main>
-
-        <PreviousPage link="/"></PreviousPage>
-        <NextPage link="experiences"></NextPage>
     </MainContainer>
 </template>
 
@@ -230,8 +229,6 @@ export default {
     @media only screen and (max-width: 700px) {
         flex: 1;
         margin: 0 30px;
-        margin-top: 50px;
-        height: 100%;
     }
 
     .title-container {

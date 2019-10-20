@@ -1,5 +1,6 @@
 <template>
     <MainContainer>
+        <NavBar></NavBar>
         <main class="home">
             <h2 class="subhead h2" ref="hi">
                 <span class="letter" v-for="letter in hi">{{letter}}</span>
@@ -28,9 +29,6 @@
 
             <img src="../assets/images/avatar.jpg" alt class="avatar slide-from-right" ref="avatar" />
         </main>
-
-        <PreviousPage link="contact"></PreviousPage>
-        <NextPage link="about"></NextPage>
     </MainContainer>
 </template>
 
