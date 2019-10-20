@@ -8,7 +8,7 @@
                 <router-link class="link" to="about" exact>About</router-link>
             </li>
             <li class="list-item">
-                <router-link class="link" to="experiences" exact>Experiences</router-link>
+                <router-link class="link" to="projects" exact>Projects</router-link>
             </li>
             <li class="list-item">
                 <router-link class="link" to="contact" exact>Contact</router-link>
