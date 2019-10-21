@@ -86,19 +86,19 @@ export default {
                 {
                     icon: "firebase.png",
                     text: "Firebase",
-                    width: "60%"
+                    width: "55%"
                 },
 
                 {
                     icon: "mongodb.png",
                     text: "MongoDB",
-                    width: "60%"
+                    width: "55%"
                 },
 
                 {
-                    icon: "php.png",
-                    text: "PHP",
-                    width: "55%"
+                    icon: "nodejs.png",
+                    text: "NodeJS",
+                    width: "60%"
                 }
             ]
         };
@@ -267,7 +267,7 @@ export default {
             .icon-container {
                 .skills-icon {
                     width: 30px;
-                    height: 30px;
+                    height: auto;
                     object-fit: cover;
                 }
             }
