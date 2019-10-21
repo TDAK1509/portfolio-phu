@@ -4,6 +4,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    name: "TheMainContainer"
+};
+</script>
+
 <style lang="scss" scoped>
 .container {
     width: 100%;

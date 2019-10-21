@@ -1,48 +1,46 @@
 <template>
-    <MainContainer>
-        <main class="home">
-            <h2 class="subhead h2" ref="hi">
-                <span class="letter" v-for="letter in hi">{{letter}}</span>
-            </h2>
+    <main class="home">
+        <h2 class="subhead h2" ref="hi">
+            <span class="letter" v-for="letter in hi">{{letter}}</span>
+        </h2>
 
-            <h1 class="headline h1" ref="name">
-                <template v-for="l in name.split('')">
-                    <span class="space-name" v-if="l == ' '">&nbsp;</span>
-                    <span class="letter" v-else>{{l}}</span>
-                </template>
-            </h1>
+        <h1 class="headline h1" ref="name">
+            <template v-for="l in name.split('')">
+                <span class="space-name" v-if="l == ' '">&nbsp;</span>
+                <span class="letter" v-else>{{l}}</span>
+            </template>
+        </h1>
 
-            <h4 class="subhead h4" ref="title">
-                <template v-for="l in title.split('')">
-                    <span class="space-title" v-if="l == ' '">&nbsp;</span>
-                    <span class="letter" v-else>{{l}}</span>
-                </template>
-            </h4>
+        <h4 class="subhead h4" ref="title">
+            <template v-for="l in title.split('')">
+                <span class="space-title" v-if="l == ' '">&nbsp;</span>
+                <span class="letter" v-else>{{l}}</span>
+            </template>
+        </h4>
 
-            <p class="caption" ref="caption">
-                <template v-for="l in caption.split('')">
-                    <span class="space-title" v-if="l == ' '">&nbsp;</span>
-                    <span class="letter" v-else>{{l}}</span>
-                </template>
-            </p>
+        <p class="caption" ref="caption">
+            <template v-for="l in caption.split('')">
+                <span class="space-title" v-if="l == ' '">&nbsp;</span>
+                <span class="letter" v-else>{{l}}</span>
+            </template>
+        </p>
 
-            <div class="row">
-                <router-link to="about" exact>
-                    <img
-                        src="../assets/images/avatar.png"
-                        alt
-                        class="avatar slide-from-right"
-                        ref="avatar"
-                    />
-                </router-link>
+        <div class="row">
+            <router-link to="about" exact>
+                <img
+                    src="../assets/images/avatar.png"
+                    alt
+                    class="avatar slide-from-right"
+                    ref="avatar"
+                />
+            </router-link>
 
-                <div class="click-me" ref="clickMe">
-                    <font-awesome-icon icon="hand-point-left"></font-awesome-icon>
-                    <span class="text">Click</span>
-                </div>
+            <div class="click-me" ref="clickMe">
+                <font-awesome-icon icon="hand-point-left"></font-awesome-icon>
+                <span class="text">Click</span>
             </div>
-        </main>
-    </MainContainer>
+        </div>
+    </main>
 </template>
 
 <script>
@@ -70,7 +68,7 @@ export default {
         animate() {
             const tl = anime.timeline();
 
-            tl.add(this.animateLetter(this.$refs.hi), "+=500");
+            tl.add(this.animateLetter(this.$refs.hi), "+=300");
             tl.add(this.animateLetter(this.$refs.name), "+=300");
             tl.add(this.animateLetter(this.$refs.title), "+=150");
             tl.add(this.animateLetter(this.$refs.caption), "-=250");

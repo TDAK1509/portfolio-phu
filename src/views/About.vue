@@ -1,49 +1,47 @@
 <template>
-    <MainContainer>
-        <main class="main">
-            <div class="about-me-container" ref="aboutMeContainer">
-                <div class="title-container">
-                    <h4 class="title" ref="aboutMe">ABOUT ME</h4>
-                </div>
-
-                <ul class="list">
-                    <li
-                        class="list-item"
-                        v-for="(a, index) in aboutMe"
-                        :key="`aboutMeItem${index}`"
-                        :ref="`aboutMeItem${index}`"
-                    >
-                        <font-awesome-icon icon="angle-right" />
-                        <span class="text">{{a}}.</span>
-                    </li>
-                </ul>
-
-                <div class="divider" ref="divider"></div>
+    <main class="main">
+        <div class="about-me-container" ref="aboutMeContainer">
+            <div class="title-container">
+                <h4 class="title" ref="aboutMe">ABOUT ME</h4>
             </div>
 
-            <div class="skill-row-container">
-                <div class="skill-row" v-for="(s, index) in skills" :key="`skillRow${index}`">
-                    <div class="icon-container">
-                        <img
-                            :src="require (`@/assets/images/${s.icon}`)"
-                            :alt="s.text"
-                            class="skills-icon"
-                        />
-                    </div>
+            <ul class="list">
+                <li
+                    class="list-item"
+                    v-for="(a, index) in aboutMe"
+                    :key="`aboutMeItem${index}`"
+                    :ref="`aboutMeItem${index}`"
+                >
+                    <font-awesome-icon icon="angle-right" />
+                    <span class="text">{{a}}.</span>
+                </li>
+            </ul>
 
-                    <div class="text-container">
-                        <span class="text">{{s.text}}</span>
-                    </div>
+            <div class="divider" ref="divider"></div>
+        </div>
 
-                    <div class="skill-bar-container">
-                        <div class="skill-bar">
-                            <div :class="`skill-bar-inside`" :ref="`skillBar${index}`"></div>
-                        </div>
+        <div class="skill-row-container">
+            <div class="skill-row" v-for="(s, index) in skills" :key="`skillRow${index}`">
+                <div class="icon-container">
+                    <img
+                        :src="require (`@/assets/images/${s.icon}`)"
+                        :alt="s.text"
+                        class="skills-icon"
+                    />
+                </div>
+
+                <div class="text-container">
+                    <span class="text">{{s.text}}</span>
+                </div>
+
+                <div class="skill-bar-container">
+                    <div class="skill-bar">
+                        <div :class="`skill-bar-inside`" :ref="`skillBar${index}`"></div>
                     </div>
                 </div>
             </div>
-        </main>
-    </MainContainer>
+        </div>
+    </main>
 </template>
 
 <script>
@@ -55,7 +53,7 @@ export default {
     data() {
         return {
             aboutMe: [
-                "Test-driven development (TDD)",
+                "Test-driven development",
                 "Always try to write dry and maintainable code",
                 "Responsible"
             ],
@@ -152,7 +150,7 @@ export default {
                     { left: 0, bottom: 0, letterSpacing: 2 }
                 ],
                 opacity: 1,
-                duration: 1200,
+                duration: 1000,
                 easing: "easeOutQuart"
             };
         },

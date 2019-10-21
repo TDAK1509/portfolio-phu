@@ -1,5 +1,5 @@
 <template>
-    <MainContainer>
+    <div>
         <main class="main">
             <header class="contact-us-header">
                 <h4 class="title" ref="aboutMe">CONTACT ME</h4>
@@ -61,7 +61,7 @@
         </main>
 
         <TheContactModal v-if="showModal" @close="showModal = false"></TheContactModal>
-    </MainContainer>
+    </div>
 </template>
 
 <script>

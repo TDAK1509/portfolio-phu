@@ -2,11 +2,24 @@
     <div id="app">
         <TheNavBar></TheNavBar>
 
-        <transition name="page">
-            <router-view />
-        </transition>
+        <TheMainContainer>
+            <transition name="page" mode="out-in">
+                <router-view />
+            </transition>
+        </TheMainContainer>
     </div>
 </template>
+
+<script>
+import TheMainContainer from "@/components/TheMainContainer";
+export default {
+    name: "App",
+
+    components: {
+        TheMainContainer
+    }
+};
+</script>
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700&display=swap");
@@ -27,15 +40,11 @@ body {
     font-family: "Raleway", sans-serif;
 }
 
-#app {
-    overflow: hidden !important;
-}
-
 .page-enter-active {
-    // animation: bounce-in 0.3s ease-in-out;
+    animation: bounce-in 0.3s ease-in-out;
 }
 .page-leave-active {
-    // animation: bounce-out 0.3s ease-in-out;
+    animation: bounce-out 0.3s ease-in-out;
 }
 
 @keyframes bounce-in {
@@ -57,5 +66,17 @@ body {
         transform: scale(0.5);
         opacity: 0;
     }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition-duration: 0.3s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+    opacity: 0;
 }
 </style>

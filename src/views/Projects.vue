@@ -1,19 +1,17 @@
 <template>
-    <MainContainer>
-        <main class="main">
-            <div class="iframe-container">
-                <iframe
-                    class="iframe"
-                    width="560"
-                    height="315"
-                    src="https://www.youtube.com/embed/e-ORhEE9VVg"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
-            </div>
-        </main>
-    </MainContainer>
+    <main class="main">
+        <div class="iframe-container">
+            <iframe
+                class="iframe"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/e-ORhEE9VVg"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+        </div>
+    </main>
 </template>
 
 <script>
