@@ -1,23 +1,17 @@
 <template>
-  <main class="main">
-    <div class="iframe-container">
-      <carousel v-bind="carouselOptions">
-        <slide>
-          Slide 1 Content
-        </slide>
-        <slide>
-          Slide 2 Content
-        </slide>
-        <slide>
-          Slide 3 Content
-        </slide>
-        <slide>
-          Slide 4 Content
-        </slide>
-        <slide>
-          Slide 5 Content
-        </slide>
-      </carousel>
+  <main class="projects">
+    <div
+      class="projects__project"
+      v-for="(project, index) in projects"
+      :key="`project${index}`"
+    >
+      <button class="projects__project-button">
+        <img
+          class="projects__project-main-image"
+          :src="project.mainImage"
+          alt="Project main image"
+        />
+      </button>
     </div>
   </main>
 </template>
@@ -40,26 +34,83 @@ export default {
         perPage: 1,
         paginationEnabled: false,
         centerMode: true
-      }
+      },
+
+      projects: [
+        {
+          mainImage:
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+          list: [
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg"
+          ]
+        },
+
+        {
+          mainImage:
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+          list: [
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg"
+          ]
+        },
+        {
+          mainImage:
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+          list: [
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg"
+          ]
+        },
+        {
+          mainImage:
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+          list: [
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
+            "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg"
+          ]
+        }
+      ]
     };
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.iframe-container {
-  position: relative;
-  width: 550px;
-  height: 325px;
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 50px;
+}
 
-  @media only screen and (max-width: 600px) {
-    width: 300px;
-    height: 220px;
+.projects__project-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in;
+
+  &:hover {
+    transform: scale(1.1);
   }
+}
 
-  .iframe {
-    width: 100%;
-    height: 100%;
+.projects__project-main-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 500px) {
+  .projects {
+    display: block;
   }
 }
 </style>
