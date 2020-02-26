@@ -1,39 +1,65 @@
 <template>
-    <main class="main">
-        <div class="iframe-container">
-            <iframe
-                class="iframe"
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/e-ORhEE9VVg"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            ></iframe>
-        </div>
-    </main>
+  <main class="main">
+    <div class="iframe-container">
+      <carousel v-bind="carouselOptions">
+        <slide>
+          Slide 1 Content
+        </slide>
+        <slide>
+          Slide 2 Content
+        </slide>
+        <slide>
+          Slide 3 Content
+        </slide>
+        <slide>
+          Slide 4 Content
+        </slide>
+        <slide>
+          Slide 5 Content
+        </slide>
+      </carousel>
+    </div>
+  </main>
 </template>
 
 <script>
+import { Carousel, Slide } from "vue-carousel";
+
 export default {
-    name: "Projects"
+  name: "Projects",
+
+  components: {
+    Carousel,
+    Slide
+  },
+
+  data() {
+    return {
+      // https://github.com/SSENSE/vue-carousel
+      carouselOptions: {
+        perPage: 1,
+        paginationEnabled: false,
+        centerMode: true
+      }
+    };
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .iframe-container {
-    position: relative;
-    width: 550px;
-    height: 325px;
+  position: relative;
+  width: 550px;
+  height: 325px;
 
-    @media only screen and (max-width: 600px) {
-        width: 300px;
-        height: 220px;
-    }
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+    height: 220px;
+  }
 
-    .iframe {
-        width: 100%;
-        height: 100%;
-    }
+  .iframe {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
