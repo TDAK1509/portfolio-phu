@@ -60,16 +60,10 @@ export default {
   data() {
     return {
       hi: "Hi,",
-      name: "I'm TDAK,",
-      title: "A fullstack web developer",
-      caption: "...with a sense of humor."
+      name: "I'm Nguyen Thanh Phu,",
+      title: "A Project Manager",
+      caption: "...also an Architect"
     };
-  },
-
-  computed: {
-    test() {
-      return this.name.split("");
-    }
   },
 
   methods: {
@@ -155,7 +149,7 @@ export default {
   }
 
   .headline {
-    font-size: 3rem;
+    font-size: 2rem;
     line-height: 3rem;
 
     &.h1 {
@@ -170,7 +164,7 @@ export default {
     margin-bottom: 5px;
 
     &.h2 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       margin-bottom: 10px;
     }
   }
