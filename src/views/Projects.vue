@@ -5,7 +5,10 @@
       v-for="(project, index) in projects"
       :key="`project${index}`"
     >
-      <button class="projects__project-button">
+      <button
+        class="projects__project-button"
+        @click="viewProjectDetail(index)"
+      >
         <img
           class="projects__project-main-image"
           :src="project.mainImage"
@@ -17,24 +20,12 @@
 </template>
 
 <script>
-import { Carousel, Slide } from "vue-carousel";
-
 export default {
   name: "Projects",
 
-  components: {
-    Carousel,
-    Slide
-  },
-
   data() {
     return {
-      // https://github.com/SSENSE/vue-carousel
-      carouselOptions: {
-        perPage: 1,
-        paginationEnabled: false,
-        centerMode: true
-      },
+      selectedProjectIndex: -1,
 
       projects: [
         {
@@ -80,6 +71,12 @@ export default {
         }
       ]
     };
+  },
+
+  methods: {
+    viewProjectDetail(index) {
+      this.selectedProjectIndex = index;
+    }
   }
 };
 </script>
