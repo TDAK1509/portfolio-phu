@@ -1,6 +1,6 @@
 <template>
   <div class="project-detail">
-    <image-slider :images="list" />
+    <image-slider :images="imageList" />
   </div>
 </template>
 
@@ -8,19 +8,15 @@
 import ImageSlider from "@/components/ImageSlider.vue";
 export default {
   name: "ProjectDetail",
+
   components: {
     ImageSlider
   },
 
-  data() {
-    return {
-      list: [
-        "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
-        "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
-        "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg",
-        "https://image.freepik.com/free-photo/sexy-girl-glasses-looking-calmly-camera_1187-5188.jpg"
-      ]
-    };
+  computed: {
+    imageList() {
+      return this.$store.state.imageList;
+    }
   }
 };
 </script>

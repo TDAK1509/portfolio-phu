@@ -7,7 +7,7 @@
     >
       <button
         class="projects__project-button"
-        @click="viewProjectDetail(index)"
+        @click="viewProjectDetail(project.list)"
       >
         <img
           class="projects__project-main-image"
@@ -25,8 +25,6 @@ export default {
 
   data() {
     return {
-      selectedProjectIndex: -1,
-
       projects: [
         {
           mainImage:
@@ -74,8 +72,9 @@ export default {
   },
 
   methods: {
-    viewProjectDetail(index) {
-      this.selectedProjectIndex = index;
+    viewProjectDetail(imageList) {
+      this.$store.commit("setProjectDetail", imageList);
+      this.$router.push({ name: "project-detail" });
     }
   }
 };
