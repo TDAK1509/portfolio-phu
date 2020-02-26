@@ -38,4 +38,11 @@ export default {
   max-height: 400px;
   object-fit: cover;
 }
+
+@media only screen and (max-width: 500px) {
+  .image-slider__image {
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
 </style>

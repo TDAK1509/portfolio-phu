@@ -105,6 +105,11 @@ export default {
 @media only screen and (max-width: 500px) {
   .projects {
     display: block;
+    padding-top: 570px;
+  }
+
+  .projects__project-button {
+    margin-bottom: 20px;
   }
 }
 </style>

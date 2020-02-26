@@ -29,4 +29,10 @@ export default {
   padding-top: 30%;
   text-align: center;
 }
+
+@media only screen and (max-width: 500px) {
+  .project-detail {
+    padding-top: 70%;
+  }
+}
 </style>
