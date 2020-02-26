@@ -2,7 +2,7 @@
   <div class="image-slider">
     <carousel v-bind="carouselOptions">
       <slide v-for="(image, index) in images" :key="index">
-        <img :src="image" alt="Image slider item" />
+        <img :src="image" alt="Image slider item" class="image-slider__image" />
       </slide>
     </carousel>
   </div>
@@ -32,4 +32,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.image-slider__image {
+  max-width: 800px;
+  max-height: 400px;
+  object-fit: cover;
+}
+</style>

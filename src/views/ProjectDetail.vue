@@ -1,6 +1,6 @@
 <template>
   <div class="project-detail">
-    <image-slider :images="imageList" />
+    <image-slider v-if="imageList.length > 0" :images="imageList" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
 
   computed: {
     imageList() {
-      return this.$store.state.imageList;
+      return this.$store.state.projectDetail;
     }
   }
 };
