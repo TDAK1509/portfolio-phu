@@ -9,11 +9,16 @@
         class="projects__project-button"
         @click="viewProjectDetail(project.list)"
       >
-        <img
-          class="projects__project-main-image"
-          :src="project.mainImage"
-          alt="Project main image"
-        />
+        <figure>
+          <img
+            class="projects__project-main-image"
+            :src="project.mainImage"
+            alt="Project main image"
+          />
+          <figcaption class="projects__project-caption">
+            {{ project.caption }}
+          </figcaption>
+        </figure>
       </button>
     </div>
   </main>
@@ -61,24 +66,29 @@ export default {
       projects: [
         {
           mainImage: p1_i1,
-          list: [p1_i1, p1_i2, p1_i3, p1_i4, p1_i5, p1_i6]
+          list: [p1_i1, p1_i2, p1_i3, p1_i4, p1_i5, p1_i6],
+          caption: "12 King St., Toronto (19.03.2019)"
         },
 
         {
           mainImage: p2_i1,
-          list: [p2_i1, p2_i2, p2_i3, p2_i4]
+          list: [p2_i1, p2_i2, p2_i3, p2_i4],
+          caption: "17 Shelmar Dr, Toronto (20.06.2018)"
         },
         {
           mainImage: p3_i1,
-          list: [p3_i1, p3_i2, p3_i3, p3_i4]
+          list: [p3_i1, p3_i2, p3_i3, p3_i4],
+          caption: "20 Cetona Ave, Woodbridge (13.03.2018)"
         },
         {
           mainImage: p4_i1,
-          list: [p4_i1, p4_i2, p4_i3, p4_i4, p4_i5, p4_i6, p4_i7, p4_i8]
+          list: [p4_i1, p4_i2, p4_i3, p4_i4, p4_i5, p4_i6, p4_i7, p4_i8],
+          caption: "To Ky St., Tan Thoi Hiep, D.12, HCMC (18.11.2013)"
         },
         {
           mainImage: p5_i1,
-          list: [p5_i1, p5_i2, p5_i3, p5_i4, p5_i5, p5_i6]
+          list: [p5_i1, p5_i2, p5_i3, p5_i4, p5_i5, p5_i6],
+          caption: "Other small projects"
         }
       ]
     };
@@ -115,6 +125,10 @@ export default {
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+.projects__project-caption {
+  margin-top: 5px;
 }
 
 @media only screen and (max-width: 500px) {
