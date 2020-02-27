@@ -36,7 +36,7 @@
     <div class="row">
       <router-link to="about" exact>
         <img
-          src="../assets/images/avatar.png"
+          src="../assets/images/avatar.jpg"
           alt
           class="avatar slide-from-right"
           ref="avatar"
