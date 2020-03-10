@@ -78,7 +78,7 @@ export default {
         {
           mainImage: p3_i1,
           list: [p3_i1, p3_i2, p3_i3, p3_i4],
-          caption: "20 Cetona Ave, Woodbridge (13.03.2018)"
+          caption: "20 Cetona Ave, Brave Heart (13.08.2016)"
         },
         {
           mainImage: p4_i1,
